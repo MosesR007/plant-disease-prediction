@@ -1,11 +1,10 @@
-/* Background */
 body {
   margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", sans-serif;
   background: linear-gradient(135deg, #a8e063, #56ab2f);
 }
 
-/* Center container */
+/* Center */
 .container {
   display: flex;
   justify-content: center;
@@ -13,16 +12,15 @@ body {
   height: 100vh;
 }
 
-/* Glass card */
+/* Card */
 .card {
   backdrop-filter: blur(15px);
   background: rgba(255, 255, 255, 0.2);
   border-radius: 20px;
   padding: 35px;
-  width: 350px;
+  width: 360px;
   text-align: center;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 /* Title */
@@ -39,15 +37,13 @@ input {
   border-radius: 10px;
   border: none;
   outline: none;
-  font-size: 14px;
   background: rgba(255, 255, 255, 0.7);
   transition: 0.3s;
 }
 
-/* Input focus */
 input:focus {
   background: white;
-  box-shadow: 0 0 8px rgba(0, 255, 100, 0.6);
+  box-shadow: 0 0 8px rgba(0, 255, 100, 0.5);
 }
 
 /* Button */
@@ -59,16 +55,14 @@ button {
   border-radius: 12px;
   background: linear-gradient(135deg, #00c853, #64dd17);
   color: white;
-  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
 }
 
-/* Button hover */
 button:hover {
-  transform: scale(1.03);
-  box-shadow: 0 8px 20px rgba(0, 200, 83, 0.5);
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 200, 83, 0.5);
 }
 
 /* Result */
@@ -76,7 +70,7 @@ button:hover {
   margin-top: 20px;
   padding: 18px;
   border-radius: 15px;
-  animation: fadeIn 0.5s ease-in-out;
+  animation: fadeIn 0.4s ease-in-out;
 }
 
 /* Healthy */
@@ -101,4 +95,14 @@ button:hover {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input[type="range"] {
+  width: 100%;
+  margin: 5px 0 10px;
 }

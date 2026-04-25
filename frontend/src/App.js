@@ -3,26 +3,22 @@ import "./App.css";
 
 function App() {
   const [form, setForm] = useState({
-    Leaf_Spot_Size: "",
-    Leaf_Color_Index: "",
-    Temperature: "",
-    Humidity: ""
+    Leaf_Spot_Size: 5.0,
+    Leaf_Color_Index: 50,
+    Temperature: 22,
+    Humidity: 60
   });
 
   const [result, setResult] = useState("");
-  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setForm({
       ...form,
-      [e.target.name]: e.target.value
+      [e.target.name]: parseFloat(e.target.value)
     });
   };
 
   const handleSubmit = async () => {
-    setLoading(true);
-    setResult("");
-
     try {
       const res = await fetch("http://127.0.0.1:5000/predict", {
         method: "POST",
@@ -34,11 +30,9 @@ function App() {
 
       const data = await res.json();
       setResult(data.prediction);
-    } catch (error) {
-      setResult("Error connecting to server");
+    } catch {
+      setResult("Error");
     }
-
-    setLoading(false);
   };
 
   return (
@@ -46,50 +40,27 @@ function App() {
       <div className="card">
         <h1>🌿 Plant Disease Predictor</h1>
 
-        <input
-          type="number"
-          step="0.1"
-          name="Leaf_Spot_Size"
-          placeholder="Leaf Spot Size"
-          onChange={handleChange}
-        />
+        <label>Leaf Spot Size (3–7): {form.Leaf_Spot_Size}</label>
+        <input type="range" min="3" max="7" step="0.1"
+          name="Leaf_Spot_Size" value={form.Leaf_Spot_Size} onChange={handleChange} />
 
-        <input
-          type="number"
-          step="0.1"
-          name="Leaf_Color_Index"
-          placeholder="Leaf Color Index"
-          onChange={handleChange}
-        />
+        <label>Leaf Color Index (40–60): {form.Leaf_Color_Index}</label>
+        <input type="range" min="40" max="60" step="1"
+          name="Leaf_Color_Index" value={form.Leaf_Color_Index} onChange={handleChange} />
 
-        <input
-          type="number"
-          name="Temperature"
-          placeholder="Temperature (°C)"
-          onChange={handleChange}
-        />
+        <label>Temperature (18–26): {form.Temperature}</label>
+        <input type="range" min="18" max="26" step="0.1"
+          name="Temperature" value={form.Temperature} onChange={handleChange} />
 
-        <input
-          type="number"
-          name="Humidity"
-          placeholder="Humidity (%)"
-          onChange={handleChange}
-        />
+        <label>Humidity (50–70): {form.Humidity}</label>
+        <input type="range" min="50" max="70" step="1"
+          name="Humidity" value={form.Humidity} onChange={handleChange} />
 
-        <button onClick={handleSubmit}>
-          {loading ? "Analyzing..." : "Predict"}
-        </button>
+        <button onClick={handleSubmit}>Predict</button>
 
         {result && (
           <div className={`result ${result === "Healthy" ? "healthy" : "diseased"}`}>
-            <h2>
-              {result === "Healthy" ? "🌱 Healthy" : "⚠️ Diseased"}
-            </h2>
-            <p>
-              {result === "Healthy"
-                ? "Your plant looks healthy 🌿"
-                : "Disease detected! Take action ⚠️"}
-            </p>
+            <h2>{result === "Healthy" ? "🌱 Healthy" : "⚠️ Diseased"}</h2>
           </div>
         )}
       </div>
