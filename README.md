@@ -2,19 +2,19 @@
 
 ## 🚀 Overview
 
-This project is a **full-stack Machine Learning web application** that predicts whether a plant is **Healthy 🌱** or **Diseased ⚠️** based on environmental and leaf-related features.
+This project is a **full-stack Machine Learning web application** that predicts whether a plant is **Healthy 🌱** or **Diseased ⚠️** based on environmental and leaf characteristics.
 
-The system integrates a trained ML model with a modern web interface to provide **real-time predictions**.
+It demonstrates how a trained ML model can be integrated into a real-world web application using a modern frontend and backend architecture.
 
 ---
 
 ## 🧠 How It Works
 
-1. User enters plant parameters in the frontend
-2. React sends data to Flask API
-3. Backend processes input and feeds it to ML model
-4. Model returns prediction
-5. Result is displayed instantly in UI
+1. User inputs plant-related parameters in the UI
+2. React frontend sends data to Flask backend via REST API
+3. Backend processes the input and passes it to the ML model
+4. Model returns prediction (Healthy / Diseased)
+5. Result is displayed instantly in the UI
 
 ---
 
@@ -23,7 +23,7 @@ The system integrates a trained ML model with a modern web interface to provide 
 ### 🔹 Frontend
 
 * React.js
-* CSS (Glassmorphism UI)
+* CSS (Modern Glass UI)
 
 ### 🔹 Backend
 
@@ -40,12 +40,12 @@ The system integrates a trained ML model with a modern web interface to provide 
 
 ## 📊 Input Features
 
-| Feature          | Description               |
-| ---------------- | ------------------------- |
-| Leaf Spot Size   | Size of spots on leaf     |
-| Leaf Color Index | Color intensity of leaf   |
-| Temperature      | Environmental temperature |
-| Humidity         | Environmental humidity    |
+| Feature          | Description                 |
+| ---------------- | --------------------------- |
+| Leaf Spot Size   | Size of spots on the leaf   |
+| Leaf Color Index | Color intensity of the leaf |
+| Temperature      | Environmental temperature   |
+| Humidity         | Environmental humidity      |
 
 ---
 
@@ -56,9 +56,9 @@ The system integrates a trained ML model with a modern web interface to provide 
 
 ---
 
-## ⚙️ Project Structure
+## 📁 Project Structure
 
-```
+```bash
 plant-disease-prediction/
 │
 ├── backend/
@@ -86,6 +86,8 @@ pip install -r requirements.txt
 python app.py
 ```
 
+---
+
 ### 🎨 Frontend Setup
 
 ```bash
@@ -96,13 +98,22 @@ npm start
 
 ---
 
+## 📸 Demo
+
+> Add your UI screenshot below
+
+![Demo](frontend/public/demo.png)
+
+---
+
 ## 💡 Key Highlights
 
 * ✔ End-to-end ML integration
+* ✔ Real-time prediction system
 * ✔ REST API communication
 * ✔ Clean and responsive UI
-* ✔ Real-time predictions
 * ✔ Dataset-based input validation
+* ✔ Handles real-world issues like data scaling and input consistency
 
 ---
 
@@ -117,14 +128,10 @@ npm start
 
 ## 📌 Conclusion
 
-This project demonstrates how machine learning models can be integrated into real-world web applications to solve practical problems in agriculture.
+This project showcases how machine learning models can be deployed into practical applications, bridging the gap between data science and web development.
 
 ---
 
-## 🔗 Connect with Me
+## ⭐ Support
 
-Feel free to connect or provide feedback!
-
----
-
-⭐ If you found this project useful, consider giving it a star!
+If you found this project useful, consider giving it a ⭐ on GitHub!
